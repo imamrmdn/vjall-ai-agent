@@ -8,7 +8,7 @@ const startKeyboardMarkup = [
     {
       text: '🔀 AI Agent',
       callback_data: JSON.stringify({
-        command: CallbackInfo.MIX,
+        command: CallbackInfo.CMMD,
       }),
     },
     // {
@@ -22,7 +22,7 @@ const startKeyboardMarkup = [
     {
       text: '👾 AI Bridge',
       callback_data: JSON.stringify({
-        command: CallbackInfo.CMMD,
+        command: CallbackInfo.MIX,
       }),
     },
     // {
