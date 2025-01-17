@@ -21,7 +21,7 @@ import OpenAI from 'openai';
 import 'dotenv/config';
 
 // const botToken = '6567740479:AAGpS3H2tzHtp_7Ey-9v0PWpAnEaNLoVlgk';
-const botToken = '7618788274:AAHM3U2cFjezecyuzKklg56_ldgyFO-qLsE';
+const botToken = '7875279410:AAHGr_KGxogLNyILQi44egeDwILWgiD8V30';
 export const bot = new TelegramBot(botToken, { polling: true });
 
 // Store the state of each chat
@@ -85,37 +85,36 @@ async function main() {
     const messageText = msg.text;
 
     if (messageText === '/start') {
-      chatStates[chatId] = ChatStage.START;
+      // chatStates[chatId] = ChatStage.START;
 
-      delete mixStates[chatId];
-      delete mixStage[chatId];
+      // delete mixStates[chatId];
+      // delete mixStage[chatId];
 
-      if (!mixStates[chatId]) {
-        mixStates[chatId] = {
-          amount: '',
-          fromToken: '',
-          fromCurrency: '',
-          receiver: '',
-          toToken: '',
-          toCurrency: '',
-          rateId: '',
-          analyzeChainId: '',
-          analyzeContractAddress: '',
-        };
-      }
+      // if (!mixStates[chatId]) {
+      //   mixStates[chatId] = {
+      //     amount: '',
+      //     fromToken: '',
+      //     fromCurrency: '',
+      //     receiver: '',
+      //     toToken: '',
+      //     toCurrency: '',
+      //     rateId: '',
+      //     analyzeChainId: '',
+      //     analyzeContractAddress: '',
+      //   };
+      // }
 
       // Path to the video file
       const videoPath =
-        'https://res.cloudinary.com/drmwcjsgc/video/upload/v1735914680/qaipbumal1xszonmmubk.mp4';
+        'https://res.cloudinary.com/drmwcjsgc/video/upload/v1737115710/wbealornm4f9015lhvgk.mp4';
 
       await bot.sendVideo(chatId, videoPath, {
         parse_mode: 'Markdown',
         caption: `
-          * ⛓️ VJALL AI AGENT ⛓️ *
+          *Nodes Protocol 📡*
 
-*Redefining the Future of AI and Innovation*
-
-Empower your journey with secure, seamless, and personalized solutions because your digital freedom matters.
+*Next Era of Decentralized Intelligence.*
+Redefining AI Solutions with Nodes Protocol.
 
         `,
         reply_markup: JSON.stringify({
@@ -123,20 +122,21 @@ Empower your journey with secure, seamless, and personalized solutions because y
         }),
       });
     }else{
-      let mssg;
+      bot.sendMessage(chatId, 'Invalid command. Please try again.')
+    //   let mssg;
 
-      bot
-        .sendMessage(chatId, 'generate...')
-        .then((message) => (mssg = message.message_id));
+    //   bot
+    //     .sendMessage(chatId, 'generate...')
+    //     .then((message) => (mssg = message.message_id));
 
-      const resp = await getAIResponse(messageText);
-      console.log({ log: resp });
+    //   const resp = await getAIResponse(messageText);
+    //   console.log({ log: resp });
 
-      if (resp) {
-        bot.deleteMessage(chatId, mssg);
-      }
+    //   if (resp) {
+    //     bot.deleteMessage(chatId, mssg);
+    //   }
 
-      bot.sendMessage(chatId, resp);
+    //   bot.sendMessage(chatId, resp);
     }
   });
 

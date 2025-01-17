@@ -5,12 +5,12 @@ import { list_chain } from './chains';
 
 const startKeyboardMarkup = [
   [
-    {
-      text: '🔀 AI Agent',
-      callback_data: JSON.stringify({
-        command: CallbackInfo.CMMD,
-      }),
-    },
+    // {
+    //   text: '🔀 AI Agent',
+    //   callback_data: JSON.stringify({
+    //     command: CallbackInfo.CMMD,
+    //   }),
+    // },
     // {
     //   text: '🔎 Token Analyzer',
     //   callback_data: JSON.stringify({
@@ -20,7 +20,7 @@ const startKeyboardMarkup = [
   ],
   [
     {
-      text: '👾 AI Bridge',
+      text: '💵 AI Bridge',
       callback_data: JSON.stringify({
         command: CallbackInfo.MIX,
       }),
@@ -42,12 +42,22 @@ const startKeyboardMarkup = [
   // ],
   [
     {
-      text: '🔆 Socials',
-      callback_data: JSON.stringify({
-        command: CallbackInfo.SOCIALS,
-      }),
+      text: 'Website 🌍',
+      url: 'https://www.nodes-protocol.net/',
+    },
+    {
+      text: 'Twitter / X',
+      url: 'https://x.com/NodesProtocol',
     },
   ],
+  // [
+  //   {
+  //     text: '🔆 Socials',
+  //     callback_data: JSON.stringify({
+  //       command: CallbackInfo.SOCIALS,
+  //     }),
+  //   },
+  // ],
 ];
 
 const socialsKeyboardMarkup = [
@@ -60,11 +70,11 @@ const socialsKeyboardMarkup = [
   [
     {
       text: 'Website',
-      url: 'https://www.vjall-agent.com/',
+      url: 'https://www.nodes-protocol.net/',
     },
     {
       text: 'Twitter / X',
-      url: 'https://x.com/vjallagent',
+      url: 'https://x.com/NodesProtocol',
     },
   ],
   [
