@@ -23,7 +23,9 @@ export enum CallbackInfo {
   CONTRACT_ADDRESS = 14,
   CLAIM_FAUCET = 15,
   STAKING = 16,
-  CMMD = 17
+  CMMD = 17,
+  ATM = 18,
+  DII = 19
 }
 
 export const zeroAddress = '0x0000000000000000000000000000000000000000';
@@ -75,8 +77,15 @@ Our system completes transactions in less than 30 minutes.
 `;
 
 const instructions = `
-💫 Start typing, and let VJALL AI Agent bring your creativity to life 
+💫 Start typing and let NexaFlow AI Code Assistant help you analyze your code.
 `;
+
+const fiturlock1 = `
+Automation Solutions is currently in development and will be available soon.
+`
+const fiturlock2 = `
+AI Decentralized Infrastructure is under development and will be launching soon.
+`
 
 
 export const textInfo = {
@@ -84,7 +93,9 @@ export const textInfo = {
   mixing,
   analyze,
   about,
-  instructions
+  instructions,
+  fiturlock1,
+  fiturlock2
 };
 
 export const isAdmin = (userId: number) => {

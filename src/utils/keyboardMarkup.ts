@@ -5,24 +5,10 @@ import { list_chain } from './chains';
 
 const startKeyboardMarkup = [
   [
-    // {
-    //   text: '🔀 AI Agent',
-    //   callback_data: JSON.stringify({
-    //     command: CallbackInfo.CMMD,
-    //   }),
-    // },
-    // {
-    //   text: '🔎 Token Analyzer',
-    //   callback_data: JSON.stringify({
-    //     command: CallbackInfo.ANALYZE,
-    //   }),
-    // },
-  ],
-  [
     {
-      text: '💵 AI Bridge',
+      text: 'AI Code Assistant 🖥',
       callback_data: JSON.stringify({
-        command: CallbackInfo.MIX,
+        command: CallbackInfo.CMMD,
       }),
     },
     // {
@@ -32,6 +18,36 @@ const startKeyboardMarkup = [
     //   }),
     // },
   ],
+  [
+    {
+      text: 'Automation Solutions ⚙️',
+      callback_data: JSON.stringify({
+        command: CallbackInfo.ATM,
+      }),
+    },
+  ],
+    [
+    {
+      text: 'AI Decentralized Infrastructure 🏗',
+      callback_data: JSON.stringify({
+        command: CallbackInfo.DII,
+      }),
+    },
+  ],
+  // [
+  //   {
+  //     text: 'AI Code Assistant',
+  //     callback_data: JSON.stringify({
+  //       command: CallbackInfo.MIX,
+  //     }),
+  //   },
+  //   // {
+  //   //   text: '🔎 Token Analyzer',
+  //   //   callback_data: JSON.stringify({
+  //   //     command: CallbackInfo.ANALYZE,
+  //   //   }),
+  //   // },
+  // ],
   // [
   //   {
   //     text: 'ℹ️ Guideline',
@@ -43,11 +59,15 @@ const startKeyboardMarkup = [
   [
     {
       text: 'Website 🌍',
-      url: 'https://www.nodes-protocol.net/',
+      url: 'https://www.nexaflow.tech/',
     },
     {
       text: 'Twitter / X',
-      url: 'https://x.com/NodesProtocol',
+      url: 'https://x.com/NexaFlow_Sol',
+    },
+    {
+      text: 'Whitepaper 🗒',
+      url: 'https://docs.nexaflow.tech/',
     },
   ],
   // [

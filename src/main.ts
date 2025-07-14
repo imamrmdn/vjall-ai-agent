@@ -21,7 +21,7 @@ import OpenAI from 'openai';
 import 'dotenv/config';
 
 // const botToken = '6567740479:AAGpS3H2tzHtp_7Ey-9v0PWpAnEaNLoVlgk';
-const botToken = '7875279410:AAHGr_KGxogLNyILQi44egeDwILWgiD8V30';
+const botToken = process.env.TOKEN_BOT;
 export const bot = new TelegramBot(botToken, { polling: true });
 
 // Store the state of each chat
@@ -43,7 +43,17 @@ async function getAIResponse(prompt: string): Promise<any> {
       messages: [
         {
           role: 'assistant',
-          content: `If asked whether you are from ChatGPT or OpenAI, respond that you are created by Vjall AI Agent. If asked about the website of Vjall AI Agent or Vjall Agent, respond with "https://www.vjall-agent.com/". Do not include any messages that contain HTML code.`,
+          content: `
+   You are NexaFlow AI Code Assistant.
+
+- If asked whether you are from ChatGPT or OpenAI, say you are created by NexaFlow AI or NexaFlow Engine.
+- If asked about the website of NexaFlow, respond with "https://www.nexaflow.tech/".
+
+Main policy:
+- Only respond to prompts about programming or code assistance. This includes analyzing source code, explaining programming concepts, answering questions about programming history, or helping with anything related to coding (e.g., JavaScript, Python, etc.).
+- If the user's prompt is unrelated to programming (for example: asking about houses, world trivia, daily life, general chit-chat), respond exactly with:
+NexaFlow Code Assistant cannot process your request because it is not related to programming or code analysis.
+          `,
         },
         {
           role: 'user',
@@ -106,15 +116,17 @@ async function main() {
 
       // Path to the video file
       const videoPath =
-        'https://res.cloudinary.com/drmwcjsgc/video/upload/v1737115710/wbealornm4f9015lhvgk.mp4';
+        'https://res.cloudinary.com/drmwcjsgc/image/upload/v1752499619/about-nexaflow_yogk0l.jpg';
 
-      await bot.sendVideo(chatId, videoPath, {
+      await bot.sendPhoto(chatId, videoPath, {
         parse_mode: 'Markdown',
         caption: `
-          *Nodes Protocol 📡*
+          *NexaFlow 🤖*
 
-*Next Era of Decentralized Intelligence.*
-Redefining AI Solutions with Nodes Protocol.
+*Smarter Workflows, Powered by AI*
+Unlock Your Data's True Power.\n
+
+As companies generate more data than ever, they struggle to extract value quickly and securely. Existing centralized infrastructure creates vulnerabilities, while development teams waste time on repetitive tasks.
 
         `,
         reply_markup: JSON.stringify({
@@ -122,21 +134,21 @@ Redefining AI Solutions with Nodes Protocol.
         }),
       });
     }else{
-      bot.sendMessage(chatId, 'Invalid command. Please try again.')
-    //   let mssg;
+      //bot.sendMessage(chatId, 'Invalid command. Please try again.')
+      let mssg;
 
-    //   bot
-    //     .sendMessage(chatId, 'generate...')
-    //     .then((message) => (mssg = message.message_id));
+      bot
+        .sendMessage(chatId, 'generate...')
+        .then((message) => (mssg = message.message_id));
 
-    //   const resp = await getAIResponse(messageText);
-    //   console.log({ log: resp });
+      const resp = await getAIResponse(messageText);
+      console.log({ log: resp });
 
-    //   if (resp) {
-    //     bot.deleteMessage(chatId, mssg);
-    //   }
+      if (resp) {
+        bot.deleteMessage(chatId, mssg);
+      }
 
-    //   bot.sendMessage(chatId, resp);
+      bot.sendMessage(chatId, resp);
     }
   });
 
@@ -172,7 +184,12 @@ Redefining AI Solutions with Nodes Protocol.
       case CallbackInfo.CMMD:
           bot.sendMessage(chatId, textInfo.instructions);
           break;
-
+      case CallbackInfo.ATM:
+          bot.sendMessage(chatId, textInfo.fiturlock1);
+          break;
+      case CallbackInfo.DII:
+          bot.sendMessage(chatId, textInfo.fiturlock2);
+          break;
       case CallbackInfo.BACK:
         bot.editMessageReplyMarkup(
           {

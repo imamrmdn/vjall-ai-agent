@@ -3,7 +3,7 @@ import { bot } from 'src/main';
 import { CallbackInfo } from 'src/utils';
 import { isAddress } from 'ethers/lib/utils';
 
-import { claimFaucet, startFaucet } from './start';
+//import { claimFaucet, startFaucet } from './start';
 // import {
 //   contractAddressAnalyzing,
 //   receiverMessageAnalyzing,
@@ -21,13 +21,13 @@ const faucetCommand = ({ stages, states }: AnalyzeStartDto) => {
     if (stages[chatId] === CallbackInfo.CLAIM_FAUCET && messageText) {
       if (isAddress(messageText)) {
         // console.log(messageText, 'walletAddress');
-        claimFaucet({
-          chatId,
-          messageId,
-          messageText,
-          stages,
-          states,
-        });
+        // claimFaucet({
+        //   chatId,
+        //   messageId,
+        //   messageText,
+        //   stages,
+        //   states,
+        // });
       } else {
         if (stages[chatId] && messageId && Boolean(messageId - 1)) {
           await bot.deleteMessage(chatId, messageId - 1);
@@ -51,12 +51,12 @@ const faucetCommand = ({ stages, states }: AnalyzeStartDto) => {
 
     switch (data.command) {
       case CallbackInfo.CLAIM_FAUCET:
-        startFaucet({
-          chatId,
-          messageId: message.message_id,
-          stages,
-          states,
-        });
+        // startFaucet({
+        //   chatId,
+        //   messageId: message.message_id,
+        //   stages,
+        //   states,
+        // });
         break;
       default:
         return;
